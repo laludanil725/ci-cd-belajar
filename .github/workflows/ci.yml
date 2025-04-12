@@ -1,21 +1,21 @@
-name: CI Belajar
+# .github/workflows/ci.yml
+name: CI Workflow Belajar
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout kode dari repo
       uses: actions/checkout@v3
 
-    - name: Menjalankan perintah build
-      run: echo "Hello, ini adalah proses CI sederhana!"
-
-    - name: Menjalankan test dummy
-      run: echo "Semua test lulus ✅"
+    - name: Jalankan perintah CI
+      run: |
+        echo "🚀 CI/CD Berjalan di GitHub Actions!"
+        echo "📁 Direktori saat ini: $(pwd)"
+        ls -la
