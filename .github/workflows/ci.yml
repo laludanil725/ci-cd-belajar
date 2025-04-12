@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: CI Workflow Belajar
 
 on:
@@ -14,8 +13,20 @@ jobs:
     - name: Checkout kode dari repo
       uses: actions/checkout@v3
 
-    - name: Jalankan perintah CI
+    - name: Setup Node.js (misalnya kita pakai JS project)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
       run: |
-        echo "🚀 CI/CD Berjalan di GitHub Actions!"
-        echo "📁 Direktori saat ini: $(pwd)"
-        ls -la
+        echo "🔧 Tidak ada dependencies, tapi kita simulasikan npm install"
+        mkdir test_project
+        cd test_project
+        npm init -y
+
+    - name: Jalankan build sederhana
+      run: |
+        echo "🚧 Simulasi proses build..."
+        echo "console.log('Build sukses!')" > index.js
+        node index.js
