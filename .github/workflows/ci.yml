@@ -1,0 +1,21 @@
+name: CI Belajar
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Menjalankan perintah build
+      run: echo "Hello, ini adalah proses CI sederhana!"
+
+    - name: Menjalankan test dummy
+      run: echo "Semua test lulus ✅"
