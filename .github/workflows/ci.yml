@@ -6,27 +6,20 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout kode dari repo
+    - name: Checkout kode
       uses: actions/checkout@v3
 
-    - name: Setup Node.js (misalnya kita pakai JS project)
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
     - name: Install dependencies
-      run: |
-        echo "🔧 Tidak ada dependencies, tapi kita simulasikan npm install"
-        mkdir test_project
-        cd test_project
-        npm init -y
+      run: npm install
 
-    - name: Jalankan build sederhana
-      run: |
-        echo "🚧 Simulasi proses build..."
-        echo "console.log('Build sukses!')" > index.js
-        node index.js
+    - name: Jalankan Unit Test
+      run: npm test
